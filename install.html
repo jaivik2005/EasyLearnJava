@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Java Installation Steps</title>
+  <link rel="stylesheet" href="/STYLE/install.css">
+  <style>
+    .step-section { max-width: 700px; margin: 40px auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.07); padding: 32px; }
+    .step-section h2 { color: #ff7b00; margin-bottom: 18px; }
+    .step-section h3 { margin-top: 28px; color: #282c34; }
+    .step-section code, .step-section pre { background: #f4f4f4; border-radius: 4px; padding: 2px 6px; font-size: 15px; }
+    .step-section ul, .step-section ol { margin-left: 24px; }
+    .step-section li { margin-bottom: 8px; }
+    .emoji { font-size: 1.2em; }
+    .step-section pre { padding: 12px; }
+  </style>
+</head>
+<body>
+  <div class="step-section">
+        <a href="basic.html" class="back">⬅ Back </a>
+
+    <h2 class="emoji">✅ Java Installation Steps (Platform-wise)</h2>
+
+    <h3 class="emoji">💻 1. For Windows</h3>
+    <ul>
+      <li class="emoji">🟩 <b>Step 1: Download JDK</b>
+        <ul>
+          <li>🔗 Visit: <a href="https://www.oracle.com/in/java/technologies/downloads/#jdk24-windows" target="_blank">Oracle JDK Download</a></li>
+          <li>➡ Choose JDK 21 or 17 (LTS)</li>
+          <li>➡ Select Windows x64 Installer (e.g., <code>jdk-21_windows-x64_bin.exe</code>)</li>
+        </ul>
+      </li>
+      <li class="emoji">🟩 <b>Step 2: Install JDK</b>
+        <ul>
+          <li>✔ Run .exe file</li>
+          <li>✔ Click Next → Next → Install</li>
+          <li>✔ Default path: <code>C:\Program Files\Java\jdk-21</code></li>
+        </ul>
+      </li>
+      <li class="emoji">🟩 <b>Step 3: Set Environment Variables</b>
+        <ul>
+          <li>🔍 Open Start → Search "Environment Variables" → Click <b>Edit system environment variables</b></li>
+          <li>✅ <b>Add JAVA_HOME</b>
+            <ul>
+              <li>→ System Variables → New</li>
+              <li>Name: <code>JAVA_HOME</code></li>
+              <li>Value: <code>C:\Program Files\Java\jdk-21</code></li>
+            </ul>
+          </li>
+          <li>✅ <b>Add to PATH</b>
+            <ul>
+              <li>→ System Variables → Edit Path → New:</li>
+              <li><code>%JAVA_HOME%\bin</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="emoji">🟩 <b>Step 4: Verify Installation</b>
+        <ul>
+          <li>Open Command Prompt and run:</li>
+        </ul>
+        <pre>java -version
+javac -version</pre>
+        <ul>
+          <li>✅ You should see the installed version.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3 class="emoji">🐧 2. For Ubuntu/Linux</h3>
+    <ul>
+      <li class="emoji">🟦 <b>Step 1: Install JDK via APT</b>
+        <pre>sudo apt update
+sudo apt install openjdk-17-jdk
+# Or use openjdk-21-jdk</pre>
+      </li>
+      <li class="emoji">🟦 <b>Step 2: Set JAVA_HOME (Optional)</b>
+        <pre>sudo nano /etc/environment</pre>
+        <div>🔽 Add at end:</div>
+        <pre>JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"</pre>
+        <div>📤 Then run:</div>
+        <pre>source /etc/environment</pre>
+      </li>
+      <li class="emoji">🟦 <b>Step 3: Verify</b>
+        <pre>java -version
+javac -version</pre>
+        <div>✅ Version should appear.</div>
+      </li>
+    </ul>
+
+    <h3 class="emoji">🍎 3. For macOS</h3>
+    <ul>
+      <li class="emoji">🟥 <b>Step 1: Install via Homebrew</b>
+        <pre>brew install openjdk@21</pre>
+      </li>
+      <li class="emoji">🟥 <b>Step 2: Link JDK</b>
+        <pre>sudo ln -sfn /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk</pre>
+      </li>
+      <li class="emoji">🟥 <b>Step 3: Add to Path</b>
+        <div>Open <code>.zshrc</code> or <code>.bash_profile</code>, add:</div>
+        <pre>export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+export PATH=$JAVA_HOME/bin:$PATH</pre>
+        <div>Then:</div>
+        <pre>source ~/.zshrc    # or source ~/.bash_profile</pre>
+      </li>
+      <li class="emoji">🟥 <b>Step 4: Verify</b>
+        <pre>java -version
+javac -version</pre>
+        <div>✅ Done!</div>
+      </li>
+    </ul>
+
+    <h3 class="emoji">🔧 What You Need After Setup</h3>
+    <div>
+      <b>🎯 Use a Code Editor:</b>
+      <ul>
+        <li>VS Code</li>
+        <li>IntelliJ IDEA</li>
+        <li>Eclipse</li>
+      </ul>
+    </div>
+
+    <h3 class="emoji">▶️ Try Your First Java Program</h3>
+    <div>Create a file <code>Hello.java</code> with this code:</div>
+    <pre>public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello, Java!");
+    }
+}</pre>
+    <div><b>🛠 Compile:</b></div>
+    <pre>javac Hello.java</pre>
+    <div><b>🚀 Run:</b></div>
+    <pre>java Hello</pre>
+    <div><b>🎉 Output:</b></div>
+    <pre>Hello, Java!</pre>
+  </div>
+</body>
+</html>
